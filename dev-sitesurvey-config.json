@@ -1,0 +1,126 @@
+{
+  "categories": [
+    "Environmental",
+    "Design",
+    "WHS",
+    "Commercial",
+    "Quality",
+    "Construction",
+    "Utilities Interface",
+    "Traffic Control"
+  ],
+  "center": {
+    "lat": -33.87105693564,
+    "lon": 151.17303371429
+  },
+  "features": {
+    "program": {
+      "enabled": true,
+      "max_level": 3
+    },
+    "nearmap": {
+      "bounds": {
+        "cornerOne": {
+          "lat": -33.858832,
+          "lon": 151.15379
+        },
+        "cornerTwo": {
+          "lat": -33.880951,
+          "lon": 151.202169
+        }
+      },
+      "enabled": true
+    }
+  },
+  "GISLayers": {
+    "layers": [
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "Bridge",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/Bridge_20171013/MapServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "Building",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/Building_20171013/MapServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "Communication",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/Communication_20171013/MapServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "Cultural",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/Cultural_20171013/MapServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "Drainage",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/Drainage_20171013/MapServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "Electric",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/Electric_20171013/MapServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "Gas",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/Gas_20171013/MapServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "Road",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/Road_20171013_V2/MapServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "Sewer",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/Sewer_20171013/MapServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "TCS",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/TCS_20171013/MapServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "Topography",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/Topography_20171013/MapServer/tile/{z}/{y}/{x}"
+      },
+      {
+        "maxNativeZoom": 18,
+        "maxZoom": 21,
+        "name": "Water",
+        "url":
+          "https://gisdata.arup.digital/sydgistfnsw01/rest/services/258196_Rozelle/Water_20171013/MapServer/tile/{z}/{y}/{x}"
+      }
+    ],
+    "position": "topright"
+  },
+  "url": "https://smc-rozelle-test.arup.digital",
+  "zoom": 16
+}

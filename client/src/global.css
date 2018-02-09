@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body,
+#root {
+  position: relative;
+  height: 100%;
+}
+
+/* Bootstrap override */
+ul,
+ol {
+  margin-bottom: 0;
+}
+
+.modal-backdrop {
+  background-color: white;
+}
+
+.modal-content {
+  border-radius: 0;
+}

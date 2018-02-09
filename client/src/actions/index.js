@@ -1,0 +1,1 @@
+export { setZoom } from './map'

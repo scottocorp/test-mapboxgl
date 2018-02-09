@@ -1,0 +1,29 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [
+    "stylelint-declaration-use-variable"
+  ],
+  "rules": {
+    "block-no-empty": null,
+    "color-hex-case": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": [
+          ":global",
+          "global"
+        ]
+      }
+    ],
+    "color-hex-length": "short",
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "composes",
+          "/^lost-/"
+        ]
+      }
+    ]
+  }
+}
