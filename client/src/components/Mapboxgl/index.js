@@ -21,15 +21,17 @@ const Map = styled(MapFn)`
 
 export class Mapboxgl extends Component {
   render() {
+    const center = [151.1736958740796, -33.868633345350624]
+
     return (
       <Container>
-        <Map style="mapbox://styles/mapbox/streets-v9">
+        <Map style="mapbox://styles/mapbox/streets-v9" center={center}>
           <Layer
             type="symbol"
             id="marker"
             layout={{ 'icon-image': 'marker-15' }}
           >
-            <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
+            <Feature coordinates={[-33.868633345350624, 151.1736958740796]} />
           </Layer>
         </Map>
       </Container>
