@@ -55,7 +55,7 @@ const mapComponents = {
   },
   mapLeaflet: {
     component: MapLeaflet,
-    label: 'Vanilla leaflet map',
+    label: 'vanilla leaflet map',
     type: null
   }
 }

@@ -11,4 +11,4 @@ npm install
 ```
 npm run dev
 ```
-Just go to ```client/src/components/Desktop/index.js``` and swap out the component wrapped by ```<MapWrapper>``` 
+Then browse localhost:3002
