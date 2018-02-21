@@ -4,7 +4,8 @@ import styled from 'react-emotion'
 
 // import MapLeaflet from './../Mapboxgl'
 // import Mapboxgl from './../Mapboxgl'
-import LondonCycle from './../LondonCycle'
+//import LondonCycle from './../LondonCycle'
+import HeatMap from './../HeatMap'
 
 const Container = styled('div')({
   height: '100%',
@@ -26,7 +27,7 @@ export class Desktop extends Component {
     return (
       <Container>
         <MapWrapper>
-          <LondonCycle />
+          <HeatMap />
         </MapWrapper>
       </Container>
     )
