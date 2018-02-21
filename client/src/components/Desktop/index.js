@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'react-emotion'
-import Mapboxgl from './../Mapboxgl'
 // import MapLeaflet from './../Mapboxgl'
+// import Mapboxgl from './../Mapboxgl'
+import LondonCycle from './../LondonCycle'
 // import Sidebar from './../Sidebar'
 // import Header from './../Header'
 
@@ -26,7 +27,7 @@ export class Desktop extends Component {
     return (
       <Container>
         <MapWrapper>
-          <Mapboxgl />
+          <LondonCycle />
         </MapWrapper>
       </Container>
     )

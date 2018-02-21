@@ -31,7 +31,7 @@ export class Mapboxgl extends Component {
             id="marker"
             layout={{ 'icon-image': 'marker-15' }}
           >
-            <Feature coordinates={[-33.868633345350624, 151.1736958740796]} />
+            <Feature coordinates={[151.1736958740796, -33.868633345350624]} />
           </Layer>
         </Map>
       </Container>
