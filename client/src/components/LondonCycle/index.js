@@ -10,8 +10,7 @@ const { token, styles } = require('./config.json')
 const Mapbox = ReactMapboxGl({
   minZoom: 8,
   maxZoom: 15,
-  accessToken:
-    'pk.eyJ1Ijoic2NvdHRvY29ycCIsImEiOiJjaXpjNHMwMjIwMDU2MzJwZXcwb2swYTl3In0.FfF-plyUBuUwfUvc1aQK6Q'
+  accessToken: process.env.MAPBOX_KEY
 })
 
 const Container = styled.div`
@@ -84,6 +83,8 @@ export class LondonCycle extends React.Component {
   }
   render() {
     const { fitBounds, center, zoom, stations, station } = this.state
+
+    console.log('LondonCycle! ')
 
     return (
       <Container>
