@@ -53,11 +53,11 @@ const mapComponents = {
     label: 'vanilla mapboxgl map',
     type: null
   },
-  // mapLeaflet: {
-  //   component: MapLeaflet,
-  //   label: 'Vanilla react-leaflet map',
-  //   type: null
-  // }
+  mapLeaflet: {
+    component: MapLeaflet,
+    label: 'Vanilla leaflet map',
+    type: null
+  }
 }
 
 export class Desktop extends Component {

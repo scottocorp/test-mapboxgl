@@ -7,6 +7,7 @@ import { setZoom } from '../../actions'
 
 // This fixes an issue with leaflet. See https://github.com/PaulLeCam/react-leaflet/issues/255
 import L from 'leaflet'
+import styled from 'react-emotion'
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
@@ -14,9 +15,17 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 })
 
+const Container = styled.div`
+  height: 100vh;
+  width: 100%;
+  position: relative;
+`
+
 const mapStyle = {
-  flex: '1 1 100%',
-  zIndex: 1
+  height: '100%',
+  width: '100%',
+  position: 'absolute',
+  background: 'skyblue'
 }
 
 export class MapLeaflet extends Component {
@@ -42,18 +51,20 @@ export class MapLeaflet extends Component {
       'https://api.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' +
       process.env.MAPBOX_KEY
     return (
-      <Map
-        ref="map"
-        center={[location.lat, location.lon]}
-        zoom={zoom}
-        attributionControl={false}
-        zoomControl={true}
-        style={mapStyle}
-        onZoomEnd={({ target }) => setZoom(target.getZoom())}
-      >
-        <TileLayer url={tileUrl} />
-        {/*<LocationMarkers />*/}
-      </Map>
+      <Container>
+        <Map
+          ref="map"
+          center={[location.lat, location.lon]}
+          zoom={zoom}
+          attributionControl={false}
+          zoomControl={true}
+          style={mapStyle}
+          onZoomEnd={({ target }) => setZoom(target.getZoom())}
+        >
+          <TileLayer url={tileUrl} />
+          {/*<LocationMarkers />*/}
+        </Map>
+      </Container>
     )
   }
 }
