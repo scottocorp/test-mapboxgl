@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'react-emotion'
+
 // import MapLeaflet from './../Mapboxgl'
 // import Mapboxgl from './../Mapboxgl'
 import LondonCycle from './../LondonCycle'
-// import Sidebar from './../Sidebar'
-// import Header from './../Header'
 
 const Container = styled('div')({
   height: '100%',
