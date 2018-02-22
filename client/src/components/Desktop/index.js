@@ -4,6 +4,8 @@ import styled from 'react-emotion'
 
 import LondonCycle from './../LondonCycle'
 import HeatMap from './../HeatMap'
+import AllShapes from './../AllShapes'
+
 import MapLeaflet from './../MapLeaflet'
 import Mapboxgl from './../Mapboxgl'
 
@@ -40,12 +42,17 @@ const Label = styled.div`
 const mapComponents = {
   londonCycle: {
     component: LondonCycle,
-    label: 'LondonCycle',
+    label: 'london-cycle',
     type: 'react-mapbox-gl-demo'
   },
   heatMap: {
     component: HeatMap,
-    label: 'HeatMap',
+    label: 'heatmap',
+    type: 'react-mapbox-gl-demo'
+  },
+  allShapes: {
+    component: AllShapes,
+    label: 'all-shapes',
     type: 'react-mapbox-gl-demo'
   },
   mapboxgl: {
