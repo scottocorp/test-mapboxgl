@@ -83,6 +83,10 @@ export class Desktop extends Component {
             )
             .map((child, i) => (
               <Label
+                style={{
+                  fontWeight:
+                    child === this.state.currentMap ? 'bold' : 'normal'
+                }}
                 key={i}
                 onClick={() => this.setState({ currentMap: child })}
               >
@@ -96,6 +100,10 @@ export class Desktop extends Component {
             )
             .map((child, i) => (
               <Label
+                style={{
+                  fontWeight:
+                    child === this.state.currentMap ? 'bold' : 'normal'
+                }}
                 key={i}
                 onClick={() => this.setState({ currentMap: child })}
               >
