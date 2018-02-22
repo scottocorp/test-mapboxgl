@@ -77,39 +77,21 @@ export class Desktop extends Component {
       <Container>
         <MapWrapper>{map}</MapWrapper>
         <Sidebar>
-          {Object.keys(mapComponents)
-            .filter(
-              child => mapComponents[child].type === 'react-mapbox-gl-demo'
-            )
-            .map((child, i) => (
-              <Label
-                style={{
-                  fontWeight:
-                    child === this.state.currentMap ? 'bold' : 'normal'
-                }}
-                key={i}
-                onClick={() => this.setState({ currentMap: child })}
-              >
-                {mapComponents[child].label}
-              </Label>
-            ))}
-          <br />
-          {Object.keys(mapComponents)
-            .filter(
-              child => mapComponents[child].type !== 'react-mapbox-gl-demo'
-            )
-            .map((child, i) => (
-              <Label
-                style={{
-                  fontWeight:
-                    child === this.state.currentMap ? 'bold' : 'normal'
-                }}
-                key={i}
-                onClick={() => this.setState({ currentMap: child })}
-              >
-                {mapComponents[child].label}
-              </Label>
-            ))}
+          {Object.keys(mapComponents).map((child, i) => (
+            <Label
+              style={{
+                fontWeight: child === this.state.currentMap ? 'bold' : 'normal',
+                color:
+                  mapComponents[child].type === 'react-mapbox-gl-demo'
+                    ? '#000'
+                    : '#999'
+              }}
+              key={i}
+              onClick={() => this.setState({ currentMap: child })}
+            >
+              {mapComponents[child].label}
+            </Label>
+          ))}
         </Sidebar>
       </Container>
     )
