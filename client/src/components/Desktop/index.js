@@ -5,6 +5,7 @@ import styled from 'react-emotion'
 import LondonCycle from './../LondonCycle'
 import HeatMap from './../HeatMap'
 import AllShapes from './../AllShapes'
+import HtmlFeatures from './../HtmlFeatures'
 
 import MapLeaflet from './../MapLeaflet'
 import Mapboxgl from './../Mapboxgl'
@@ -53,6 +54,11 @@ const mapComponents = {
   allShapes: {
     component: AllShapes,
     label: 'all-shapes',
+    type: 'react-mapbox-gl-demo'
+  },
+  htmlFeatures: {
+    component: HtmlFeatures,
+    label: 'html-marker',
     type: 'react-mapbox-gl-demo'
   },
   mapboxgl: {
