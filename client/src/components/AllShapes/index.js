@@ -10,17 +10,6 @@ import styled from 'react-emotion'
 import { AllShapesPolygonCoords, AllShapesMultiPolygonCoords } from '../../data'
 import { mapData } from './allShapesStyle'
 
-// interface Point {
-//   lat: number;
-//   lng: number;
-// }
-// interface Route {
-//   // tslint:disable-next-line:no-any
-//   [key: string]: any;
-//   points: Point[];
-// }
-// tslint:disable-next-line:no-var-requires
-
 import { route } from './route'
 
 const mappedRoute = route.points.map(point => [point.lat, point.lng])
