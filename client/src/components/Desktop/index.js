@@ -8,6 +8,7 @@ import AllShapes from './../AllShapes'
 import HtmlFeatures from './../HtmlFeatures'
 import ThreeD from './../ThreeD'
 import HtmlCluster from './../HtmlCluster'
+import SwitchStyle from './../SwitchStyle'
 
 import MapLeaflet from './../MapLeaflet'
 import Mapboxgl from './../Mapboxgl'
@@ -71,6 +72,11 @@ const mapComponents = {
   htmlCluster: {
     component: HtmlCluster,
     label: 'html-cluster',
+    type: 'react-mapbox-gl-demo'
+  },
+  switchStyle: {
+    component: SwitchStyle,
+    label: 'switch-style',
     type: 'react-mapbox-gl-demo'
   },
   mapboxgl: {
