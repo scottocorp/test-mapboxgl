@@ -38,7 +38,7 @@ export class ThreeD extends React.Component {
     this.zoom = [15]
     this.bearing = [-60]
     this.pitch = [60]
-    this.center = [151.1519593, -33.8903597]
+    this.center = [-73.98566722869873, 40.74845991454198]
   }
   onStyleLoad = map => {
     const { onStyleLoad } = this.props
