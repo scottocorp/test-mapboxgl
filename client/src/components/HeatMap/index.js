@@ -67,18 +67,18 @@ export class Heatmap extends React.Component {
 
     return (
       <Container>
-      <Map
-        style="mapbox://styles/mapbox/dark-v9"
-        center={this.center}
-        containerStyle={mapStyle}
-        onStyleLoad={this.onStyleLoad}
-      >
-        <Layer type="heatmap" paint={layerPaint}>
-          {data.map((el, index) => (
-            <Feature key={index} coordinates={el.latlng} properties={el} />
-          ))}
-        </Layer>
-      </Map>
+        <Map
+          style="mapbox://styles/mapbox/dark-v9"
+          center={this.center}
+          containerStyle={mapStyle}
+          onStyleLoad={this.onStyleLoad}
+        >
+          <Layer type="heatmap" paint={layerPaint}>
+            {data.map((el, index) => (
+              <Feature key={index} coordinates={el.latlng} properties={el} />
+            ))}
+          </Layer>
+        </Map>
       </Container>
     )
   }

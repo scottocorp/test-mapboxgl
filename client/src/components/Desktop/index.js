@@ -6,6 +6,7 @@ import LondonCycle from './../LondonCycle'
 import HeatMap from './../HeatMap'
 import AllShapes from './../AllShapes'
 import HtmlFeatures from './../HtmlFeatures'
+import ThreeD from './../ThreeD'
 
 import MapLeaflet from './../MapLeaflet'
 import Mapboxgl from './../Mapboxgl'
@@ -59,6 +60,11 @@ const mapComponents = {
   htmlFeatures: {
     component: HtmlFeatures,
     label: 'html-marker',
+    type: 'react-mapbox-gl-demo'
+  },
+  threeD: {
+    component: ThreeD,
+    label: '3d-map',
     type: 'react-mapbox-gl-demo'
   },
   mapboxgl: {
