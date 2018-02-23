@@ -3,8 +3,6 @@ import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl'
 import { data } from './heatmapData'
 import styled from 'react-emotion'
 
-const { token, styles } = require('./config.json')
-
 const Map = ReactMapboxGl({ accessToken: process.env.MAPBOX_KEY })
 
 const Container = styled.div`

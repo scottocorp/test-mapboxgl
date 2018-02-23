@@ -5,8 +5,6 @@ import { londonCycleMaxBounds as maxBounds } from '../../data'
 import { svg } from './cycle'
 import { stations } from './londonCycleData'
 
-const { token, styles } = require('./config.json')
-
 const Mapbox = ReactMapboxGl({
   minZoom: 8,
   maxZoom: 15,
