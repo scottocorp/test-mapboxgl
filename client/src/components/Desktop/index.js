@@ -9,6 +9,7 @@ import HtmlFeatures from './../HtmlFeatures'
 import ThreeD from './../ThreeD'
 import HtmlCluster from './../HtmlCluster'
 import SwitchStyle from './../SwitchStyle'
+import GeojsonData from './../GeojsonData'
 
 import MapLeaflet from './../MapLeaflet'
 import Mapboxgl from './../Mapboxgl'
@@ -77,6 +78,11 @@ const mapComponents = {
   switchStyle: {
     component: SwitchStyle,
     label: 'switch-style',
+    type: 'react-mapbox-gl-demo'
+  },
+  geojsonData: {
+    component: GeojsonData,
+    label: 'geojson-data',
     type: 'react-mapbox-gl-demo'
   },
   mapboxgl: {
