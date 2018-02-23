@@ -7,6 +7,7 @@ import HeatMap from './../HeatMap'
 import AllShapes from './../AllShapes'
 import HtmlFeatures from './../HtmlFeatures'
 import ThreeD from './../ThreeD'
+import HtmlCluster from './../HtmlCluster'
 
 import MapLeaflet from './../MapLeaflet'
 import Mapboxgl from './../Mapboxgl'
@@ -65,6 +66,11 @@ const mapComponents = {
   threeD: {
     component: ThreeD,
     label: '3d-map',
+    type: 'react-mapbox-gl-demo'
+  },
+  htmlCluster: {
+    component: HtmlCluster,
+    label: 'html-cluster',
     type: 'react-mapbox-gl-demo'
   },
   mapboxgl: {
