@@ -176,7 +176,9 @@ export class StyleUpdate extends React.Component {
                 onDragEnd={evt => this.onDragEnd(evt, index)}
                 onDragStart={this.onDragStart}
                 onDrag={this.onDrag}
-              />
+              >
+                <div>howdy</div>
+              </Feature>
             ))}
           </Layer>
 

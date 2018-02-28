@@ -10,6 +10,7 @@ import ThreeD from './../ThreeD'
 import HtmlCluster from './../HtmlCluster'
 import SwitchStyle from './../SwitchStyle'
 import GeojsonData from './../GeojsonData'
+import Nearmap from './../Nearmap'
 
 import MapLeaflet from './../MapLeaflet'
 import Mapboxgl from './../Mapboxgl'
@@ -85,6 +86,11 @@ const mapComponents = {
     label: 'geojson-data',
     type: 'react-mapbox-gl-demo'
   },
+  nearmap: {
+    component: Nearmap,
+    label: 'nearmap',
+    type: 'null'
+  },
   mapboxgl: {
     component: Mapboxgl,
     label: 'vanilla mapboxgl map',
@@ -101,7 +107,7 @@ export class Desktop extends Component {
   constructor() {
     super()
     this.state = {
-      currentMap: 'londonCycle'
+      currentMap: 'nearmap'
     }
   }
   render() {
