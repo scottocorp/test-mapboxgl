@@ -15,6 +15,8 @@ import Nearmap from './../Nearmap'
 import MapLeaflet from './../MapLeaflet'
 import Mapboxgl from './../Mapboxgl'
 
+import BmvClustering from './../BmvClustering'
+
 const Container = styled('div')({
   height: '100%',
   position: 'relative',
@@ -100,6 +102,11 @@ const mapComponents = {
     component: MapLeaflet,
     label: 'vanilla leaflet map',
     type: null
+  },
+  bmvClustering: {
+    component: BmvClustering,
+    label: 'BMV clustering',
+    type: 'react-mapbox-gl-demo'
   }
 }
 
@@ -107,7 +114,7 @@ export class Desktop extends Component {
   constructor() {
     super()
     this.state = {
-      currentMap: 'nearmap'
+      currentMap: 'bmvClustering'
     }
   }
   render() {

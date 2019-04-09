@@ -89,86 +89,43 @@ export default env => {
       }
     },
     module: {
+      noParse: /(mapbox-gl)\.js$/, // Get obtuse ReferenceError without this from Mapbox GL
       rules: [
+        {
+          test: /\.(svg|png|jpe?g)$/,
+          include: [
+            path.resolve(__dirname, 'src'),
+            path.resolve(__dirname, '..', 'node_modules', 'leaflet'),
+            path.resolve(__dirname, '..', 'node_modules', 'mapbox-gl'),
+            path.resolve(__dirname, '..', 'node_modules', '@mapbox')
+          ],
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 8192
+              }
+            }
+          ]
+        },
         {
           test: /\.js$/,
           include: [
             path.resolve(__dirname, 'src'),
-            path.resolve(__dirname, '..', 'node_modules', 'luxon')
+            path.resolve(__dirname, 'lib')
           ],
-          loader: 'babel-loader'
+          loader: 'babel-loader?cacheDirectory=false'
         },
         {
-          test: /(global\.css|fonts\.css|leaflet\.css|bootstrap\.css|react-bootstrap-table.min\.css|_datepicker\.css|leaflet-measure\.css|react-select\.css|slick\.css|slick-theme\.css)/,
-          include: [
-            path.resolve(
-              __dirname,
-              '..',
-              'node_modules',
-              'slick-carousel',
-              'slick'
-            ),
-            path.resolve(__dirname, '..', 'node_modules', 'react-dates'),
-            path.resolve(
-              __dirname,
-              '..',
-              'node_modules',
-              'react-select',
-              'dist'
-            ),
-            path.resolve(__dirname, '..', 'node_modules', 'react-dates'),
-            path.resolve(
-              __dirname,
-              '..',
-              'node_modules',
-              'leaflet-measure',
-              'dist'
-            ),
-            path.resolve(__dirname, '..', 'node_modules', 'leaflet'),
-            path.resolve(__dirname, '..', 'node_modules', 'bootstrap'),
-            path.resolve(
-              __dirname,
-              '..',
-              'node_modules',
-              'react-bootstrap-table'
-            ),
-            path.resolve(__dirname, 'src')
-          ],
-          loaders: ['style-loader', 'css-loader']
-        },
-        {
-          test: /\.(?:png|jpg|svg|json|csv|gif)/,
+          test: /\.css$/,
           include: [
             path.resolve(__dirname, '..', 'node_modules', 'leaflet'),
-            path.resolve(__dirname, '..', 'node_modules', 'bootstrap'),
-            path.resolve(
-              __dirname,
-              '..',
-              'node_modules',
-              'slick-carousel',
-              'slick'
-            ),
-            path.resolve(__dirname, 'data'),
+            path.resolve(__dirname, '..', 'node_modules', 'mapbox-gl'),
+            path.resolve(__dirname, '..', 'node_modules', '@mapbox'),
             path.resolve(__dirname, 'src'),
-            path.resolve(__dirname, 'images')
+            path.resolve(__dirname, 'src', 'components')
           ],
-          exclude: [path.resolve(__dirname, 'src/messages.json')],
-          use: 'file-loader'
-        },
-        {
-          test: /\.(?:ttf|svg|woff2?|eot)$/,
-          loader: 'file-loader',
-          include: [
-            path.resolve(__dirname, 'fonts'),
-            path.resolve(__dirname, '..', 'node_modules', 'bootstrap'),
-            path.resolve(
-              __dirname,
-              '..',
-              'node_modules',
-              'slick-carousel',
-              'slick'
-            )
-          ]
+          use: ['style-loader', 'css-loader']
         }
       ]
     },

@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
 import getRoot from 'get-root'
-import 'bootstrap/dist/css/bootstrap.css'
 import './global.css'
 import App from './components/App'
 import { Provider } from 'react-redux'
