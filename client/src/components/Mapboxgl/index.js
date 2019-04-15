@@ -19,6 +19,14 @@ const Map = styled(MapFn)`
   background: skyblue;
 `
 
+const POSITION_CIRCLE_PAINT = {
+  'circle-stroke-width': 4,
+  'circle-radius': 10,
+  'circle-blur': 0.15,
+  'circle-color': '#3770C6',
+  'circle-stroke-color': 'white'
+}
+
 export class Mapboxgl extends Component {
   render() {
     const center = [151.1736958740796, -33.868633345350624]
@@ -26,11 +34,7 @@ export class Mapboxgl extends Component {
     return (
       <Container>
         <Map style="mapbox://styles/mapbox/streets-v9" center={center}>
-          <Layer
-            type="symbol"
-            id="marker"
-            layout={{ 'icon-image': 'marker-15' }}
-          >
+          <Layer type="circle" id="marker" paint={POSITION_CIRCLE_PAINT}>
             <Feature coordinates={[151.1736958740796, -33.868633345350624]} />
           </Layer>
         </Map>
