@@ -114,7 +114,7 @@ export class Desktop extends Component {
   constructor() {
     super()
     this.state = {
-      currentMap: 'bmvClustering'
+      currentMap: 'londonCycle'
     }
   }
   render() {
@@ -132,9 +132,9 @@ export class Desktop extends Component {
               style={{
                 fontWeight: child === this.state.currentMap ? 'bold' : 'normal',
                 color: '#000'
-                  // mapComponents[child].type === 'react-mapbox-gl-demo'
-                  //   ? '#000'
-                  //   : '#999'
+                // mapComponents[child].type === 'react-mapbox-gl-demo'
+                //   ? '#000'
+                //   : '#999'
               }}
               key={i}
               onClick={() => this.setState({ currentMap: child })}

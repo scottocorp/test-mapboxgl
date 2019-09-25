@@ -97,7 +97,11 @@ export class LondonCycle extends React.Component {
           containerStyle={mapStyle}
           flyToOptions={flyToOptions}
         >
-          <Layer type="symbol" id="marker" layout={layoutLayer} images={images}>
+          <Layer
+            type="symbol"
+            id="marker"
+            layout={{ 'icon-image': 'harbor-15' }}
+          >
             {Object.keys(stations).map((stationK, index) => (
               <Feature
                 key={stationK}
