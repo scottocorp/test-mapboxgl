@@ -1,20 +1,21 @@
 {
   "presets": [
-    [
-      "env",
+    "@babel/preset-react",
+    ["@babel/preset-env",
       {
         "targets": {
-          "node": "6.10"
+          "node": "current"
         }
       }
-    ],
-    "react"
+    ]
   ],
   "plugins": [
+    "emotion",
     "lodash",
-    "inline-import",
-    "transform-class-properties",
-    "transform-object-rest-spread",
-    "emotion"
+    "babel-plugin-inline-import",
+    "@babel/plugin-transform-async-to-generator",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-runtime"
   ]
 }

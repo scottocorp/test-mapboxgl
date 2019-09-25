@@ -6,7 +6,7 @@ import ReactMapboxGl, {
   Layer,
   Feature
 } from 'react-mapbox-gl'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { AllShapesPolygonCoords, AllShapesMultiPolygonCoords } from '../../data'
 import { mapData } from './allShapesStyle'
 

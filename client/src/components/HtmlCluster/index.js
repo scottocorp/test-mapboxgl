@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ReactMapboxGl, { Marker, Cluster, Popup } from 'react-mapbox-gl'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { falls } from './falls'
 
 const Map = ReactMapboxGl({ accessToken: process.env.MAPBOX_KEY })

@@ -6,7 +6,7 @@ import ReactMapboxGl, {
   GeoJSONLayer
 } from 'react-mapbox-gl'
 import { GeoJSONSourceRaw } from 'mapbox-gl'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { styles } from '../../data'
 import { geojson } from '../../data'
 

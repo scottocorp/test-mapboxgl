@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ReactMapboxGl, { GeoJSONLayer } from 'react-mapbox-gl'
 import { geojson } from '../../data'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { styles } from '../../data'
 
 const Map = ReactMapboxGl({ accessToken: process.env.MAPBOX_KEY })

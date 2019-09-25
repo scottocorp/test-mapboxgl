@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactMapboxGl, { Layer, Feature, Source } from 'react-mapbox-gl'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 import mapboxdraw from '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw'
 import mapboxgl from 'mapbox-gl'

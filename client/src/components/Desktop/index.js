@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 import LondonCycle from './../LondonCycle'
 import HeatMap from './../HeatMap'
@@ -88,11 +88,11 @@ const mapComponents = {
     label: 'geojson-data',
     type: 'react-mapbox-gl-demo'
   },
-  nearmap: {
-    component: Nearmap,
-    label: 'nearmap',
-    type: 'null'
-  },
+  // nearmap: {
+  //   component: Nearmap,
+  //   label: 'nearmap',
+  //   type: 'null'
+  // },
   mapboxgl: {
     component: Mapboxgl,
     label: 'vanilla mapboxgl map',
@@ -131,10 +131,10 @@ export class Desktop extends Component {
             <Label
               style={{
                 fontWeight: child === this.state.currentMap ? 'bold' : 'normal',
-                color:
-                  mapComponents[child].type === 'react-mapbox-gl-demo'
-                    ? '#000'
-                    : '#999'
+                color: '#000'
+                  // mapComponents[child].type === 'react-mapbox-gl-demo'
+                  //   ? '#000'
+                  //   : '#999'
               }}
               key={i}
               onClick={() => this.setState({ currentMap: child })}

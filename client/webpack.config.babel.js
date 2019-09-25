@@ -1,134 +1,139 @@
-import webpack from 'webpack'
 import path from 'path'
-import HTMLWebpackPlugin from 'html-webpack-plugin'
-import HTMLWebpackTemplate from 'html-webpack-template'
-import Visualizer from 'webpack-visualizer-plugin'
-import LodashModuleReplacementPlugin from 'lodash-webpack-plugin'
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
+import webpack from 'webpack'
+import HTML from 'html-webpack-plugin'
+import Template from 'html-webpack-template'
+import Unused from 'unused-files-webpack-plugin'
+import 'core-js'
+
+const ROOT = path.resolve(__dirname, '..')
+const CLIENT = path.join(ROOT, 'client')
+const SRC = path.join(ROOT, 'client', 'src')
+const DIST = path.join(ROOT, 'build', 'client')
+const NODE_MODULES = path.join(ROOT, 'node_modules')
 
 export default env => {
+  console.log('calling webpack with env:', env)
   const plugins = [
-    new HTMLWebpackPlugin({
-      inject: false,
-      title: 'Site Survey',
-      template: HTMLWebpackTemplate,
-      meta: [
-        {
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1, user-scalable=no'
-        },
-        { name: 'description', content: 'Site Survey' }
-      ]
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: env === 'prod' ? 'production' : 'development'
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV':
-        env && env === 'production'
-          ? JSON.stringify('production')
-          : JSON.stringify('development'),
-      'process.env.MAPBOX_KEY': JSON.stringify(process.env.MAPBOX_KEY),
-      'process.env.AUTH0_CLIENT_ID': JSON.stringify(
-        process.env.AUTH0_CLIENT_ID
-      ),
-      'process.env.AUTH0_DOMAIN': JSON.stringify(process.env.AUTH0_DOMAIN),
-      'process.env.AUTH0_AUDIENCE': JSON.stringify(process.env.AUTH0_AUDIENCE),
-      'process.env.AUTH0_REDIRECT_URL': JSON.stringify(
-        process.env.AUTH0_REDIRECT_URL
-      ),
-      'process.env.NEARMAP_LAMBDA_ENDPOINT': JSON.stringify(
-        process.env.NEARMAP_LAMBDA_ENDPOINT
-      ),
-      'process.env.TILELAYER_ENDPOINT': JSON.stringify(
-        process.env.TILELAYER_ENDPOINT
-      ),
-      'process.env.S3_BUCKET': JSON.stringify(process.env.S3_BUCKET),
-      'process.env.NEARMAP_API_KEY': JSON.stringify(
-        process.env.NEARMAP_API_KEY
-      ),
-      'process.env.CONFIG_TABLE_NAME': JSON.stringify(
-        process.env.CONFIG_TABLE_NAME
-      )
+      'process.env.MAPBOX_KEY': JSON.stringify(process.env.MAPBOX_KEY)
+    }),
+    new HTML({
+      title: 'Test Mapboxgl',
+      inject: true,
+      template: Template
+    }),
+    new Unused({
+      patterns: ['client/src/**/*.*']
     })
   ]
+  const moduleRules = [
+    {
+      test: /\.mjs$/,
+      type: 'javascript/auto'
+    },
+    {
+      test: /\.js$/,
+      include: [SRC, path.resolve(NODE_MODULES, 'array-move')],
+      loader: 'babel-loader'
+    },
+    {
+      test: /(leaflet\.css|mapbox-gl\.css|mapbox-gl-draw\.css)/,
+      include: [
+        path.resolve(NODE_MODULES, 'leaflet', 'dist'),
+        path.resolve(NODE_MODULES, 'mapbox-gl', 'dist'),
+        path.resolve(NODE_MODULES, '@mapbox', 'mapbox-gl-draw', 'dist')
+      ],
+      loader: 'style-loader!css-loader'
+    },
+    {
+      test: /\.css$/,
+      include: SRC,
+      loader: 'style-loader!css-loader'
+    },
+    {
+      test: /\.(png|svg|ico|jpg)$/,
+      include: [
+        SRC,
+        path.resolve(CLIENT, 'images'),
+        path.resolve(NODE_MODULES, 'leaflet', 'dist', 'images'),
+        path.resolve(NODE_MODULES, '@mapbox')
+      ],
+      loaders: 'file-loader'
+    },
+    {
+      test: /\.(pdf)$/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
+          }
+        }
+      ]
+    }
+  ]
 
-  if (env === 'production') {
-    plugins.push(
-      new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false
-      }),
-      new UglifyJsPlugin()
-      // }),
-      // new webpack.optimize.UglifyJsPlugin({
-      //   beautify: false,
-      //   mangle: {
-      //     screw_ie8: true,
-      //     keep_fnames: true
-      //   },
-      //   compress: {
-      //     screw_ie8: true
-      //   },
-      //   comments: false
-      // })
-    )
+  let entry = [
+    'whatwg-fetch',
+    'core-js/es/promise',
+    'core-js/es/set',
+    'core-js/es/object',
+    'core-js/es/array/find',
+    'core-js/es/array/find-index',
+    'core-js/es/string/includes',
+    'core-js/es/symbol',
+    'core-js/es/function',
+    'core-js/es/parse-int',
+    'core-js/es/parse-float',
+    'core-js/es/number',
+    'core-js/es/math',
+    'core-js/es/string',
+    'core-js/es/date',
+    'core-js/es/array',
+    'core-js/es/regexp',
+    'core-js/es/map',
+    'core-js/es/weak-map',
+    './client/src/index.js'
+  ]
+
+  if (env === 'dev') {
+    moduleRules.push({
+      test: /\.(js|jsx)$/,
+      include: SRC,
+      loader: require.resolve('babel-loader'),
+      options: {
+        // This is a feature of `babel-loader` for Webpack (not Babel itself).
+        // It enables caching results in ./node_modules/.cache/babel-loader/
+        // directory for faster rebuilds.
+        cacheDirectory: true,
+        plugins: ['react-hot-loader/babel']
+      }
+    })
   }
-  plugins.push(new Visualizer())
-  plugins.push(new LodashModuleReplacementPlugin())
 
   return {
-    entry: path.resolve(__dirname, './src/index.js'),
-    devtool: 'cheap-module-source-map',
-    output: {
-      filename: '[hash].js',
-      path: path.join(__dirname, '..', 'build', 'client'),
-      publicPath: '/'
-    },
+    entry: entry,
+    devtool: 'source-map',
     resolve: {
       alias: {
+        // TODO: is this neeeded?
+        //'react-relay': 'react-relay/react-relay.min.js',
         'react-dom': path.resolve(__dirname, '..', 'node_modules', 'react-dom'),
         react: path.resolve(__dirname, '..', 'node_modules', 'react')
       }
     },
-    module: {
-      noParse: /(mapbox-gl)\.js$/, // Get obtuse ReferenceError without this from Mapbox GL
-      rules: [
-        {
-          test: /\.(svg|png|jpe?g)$/,
-          include: [
-            path.resolve(__dirname, 'src'),
-            path.resolve(__dirname, '..', 'node_modules', 'leaflet'),
-            path.resolve(__dirname, '..', 'node_modules', 'mapbox-gl'),
-            path.resolve(__dirname, '..', 'node_modules', '@mapbox')
-          ],
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 8192
-              }
-            }
-          ]
-        },
-        {
-          test: /\.js$/,
-          include: [
-            path.resolve(__dirname, 'src'),
-            path.resolve(__dirname, 'lib')
-          ],
-          loader: 'babel-loader?cacheDirectory=false'
-        },
-        {
-          test: /\.css$/,
-          include: [
-            path.resolve(__dirname, '..', 'node_modules', 'leaflet'),
-            path.resolve(__dirname, '..', 'node_modules', 'mapbox-gl'),
-            path.resolve(__dirname, '..', 'node_modules', '@mapbox'),
-            path.resolve(__dirname, 'src'),
-            path.resolve(__dirname, 'src', 'components')
-          ],
-          use: ['style-loader', 'css-loader']
-        }
-      ]
+    output: {
+      path: DIST,
+      filename: '[name][hash].js',
+      publicPath: '/'
     },
-    plugins
+    module: {
+      rules: moduleRules
+    },
+    plugins,
+    mode: env === 'prod' ? 'production' : 'development'
   }
 }

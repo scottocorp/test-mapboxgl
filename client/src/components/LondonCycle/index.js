@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ReactMapboxGl, { Layer, Feature, Popup } from 'react-mapbox-gl'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { londonCycleMaxBounds as maxBounds } from '../../data'
 import { svg } from './cycle'
 import { stations } from './londonCycleData'

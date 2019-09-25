@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 const MapFn = ReactMapboxGl({
   accessToken: process.env.MAPBOX_KEY

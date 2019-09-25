@@ -7,7 +7,7 @@ import { setZoom } from '../../actions'
 
 // This fixes an issue with leaflet. See https://github.com/PaulLeCam/react-leaflet/issues/255
 import L from 'leaflet'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),

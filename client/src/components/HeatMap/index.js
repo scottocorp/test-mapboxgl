@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl'
 import { data } from './heatmapData'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 const Map = ReactMapboxGl({ accessToken: process.env.MAPBOX_KEY })
 

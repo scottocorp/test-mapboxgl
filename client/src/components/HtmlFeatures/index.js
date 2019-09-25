@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ReactMapboxGl, { Marker } from 'react-mapbox-gl'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import Dropdown from './../Dropdown'
 
 const geocodingUrl = 'https://api.mapbox.com/geocoding/v5'
