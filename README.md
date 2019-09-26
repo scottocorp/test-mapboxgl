@@ -5,6 +5,8 @@ This is a quick and hacky port to jsx/js of the [react-mapbox-gl](https://github
 # Getting Started
 Clone this repo and install it's dependencies
 ```
+git clone git@github.com:scottocorp/test-mapboxgl.git
+cd test-mapboxgl
 npm install
 ```
 # Developing
