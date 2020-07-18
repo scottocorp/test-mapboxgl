@@ -50,7 +50,7 @@
     "get-root": "0.0.3",
     "jsonp": "^0.2.1",
     "leaflet": "^1.5.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "lodash-webpack-plugin": "^0.11.5",
     "mapbox-gl": "^1.3.1",
     "prop-types": "^15.7.2",
