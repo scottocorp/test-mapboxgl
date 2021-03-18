@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Map, Popup, TileLayer, Marker, GeoJSON } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-// import LocationMarkers from './../LocationMarkers'
+import LocationMarkers from './../LocationMarkers'
 import { setZoom } from '../../actions'
 
 // This fixes an issue with leaflet. See https://github.com/PaulLeCam/react-leaflet/issues/255
@@ -48,8 +48,7 @@ export class MapLeaflet extends Component {
       location = { lat: -33.8903597, lon: 151.1519593 }
     }
     const tileUrl =
-      'https://api.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' +
-      process.env.MAPBOX_KEY
+      'https://api.mapbox.com/styles/v1/btsdatavisualisation/cj7qydaljdiiz2rny0phoptu2/tiles/256/{z}/{x}/{y}?access_token=' + process.env.MAPBOX_KEY
     return (
       <Container>
         <Map
